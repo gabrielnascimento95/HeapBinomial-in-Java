@@ -51,8 +51,30 @@ public class HealBinomial {
         
         while(z != null){
             if((y.getNivel() != z.getNivel()) || ((z.getIrmao() != null) && (z.getIrmao().getNivel() == y.getNivel()))){
-                
+                x = y;
+                y = z;
             }
+            else{
+                if(y.getChave() <= z.getChave()){
+                    y.setIrmao(z.getIrmao());
+                    z.setPai(y);
+                    z.setIrmao(y.getFilho());
+                    y.setFilho(z);
+                    y.setNivel(y.getNivel()+1);
+                }else{
+                    if(x == null){
+                        nos = z;
+                    }else{
+                        x.setIrmao(z);
+                    }
+                    y.setPai(z);
+                    y.setIrmao(z.getFilho());
+                    z.setFilho(y);
+                    z.setNivel(z.getNivel()+1);
+                    y = z;
+                }
+            }
+            z = y.getIrmao();
         }
     }
     
