@@ -9,7 +9,7 @@ package heapbinomial.in.java;
  *
  * @author Gabriel_Nascimento
  */
-public class HeapBinomialInJava {
+public class Main {
 
     /**
      * @param args the command line arguments
